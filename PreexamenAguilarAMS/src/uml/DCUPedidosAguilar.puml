@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor "Usuario" as user
+
+rectangle "Sistema Gestión de Pedidos Aguilar"{
+    usecase "Ingresar Usuario" as UC1
+    usecase "Validar Usuario" as UC2
+    usecase "Mostrar Error" as UC3
+    usecase "Acceder al Sistema" as UC4
+    usecase "Crear Orden" as UC5
+    usecase "Consultar Catalogo" as UC6
+}
+
+user --> UC1
+user --> UC5
+user --> UC6
+UC1 ..> UC2 : <<include>>
+UC2 ..> UC4 : <<si es válido>>
+UC2 ..> UC3 : <<si es inválido>>
+
+    
+@enduml

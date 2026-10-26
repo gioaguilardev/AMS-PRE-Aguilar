@@ -1,0 +1,25 @@
+@startuml
+start
+:Ingresar Usuario;
+:Validar Usuario;
+
+if(¿Es válido?) then (SI)
+    :Acceder al Sistema;
+    :Consultar Catálogo;
+    :Crear Orden;
+    if(¿El producto está disponible?) then (SI)
+        :Seleccionar Cantidad;
+        if(¿user_id o product_id existen en las tablas base?) then (SI)
+            :Generar Pedido;
+            :Consultar Pedidos;
+        else(NO)
+            :Mostrar Error;
+        endif
+    else(NO)
+        :Avisar al Usuario y reintentar;
+    endif
+else(NO)
+    :Mostrar Error;
+endif
+stop
+@enduml

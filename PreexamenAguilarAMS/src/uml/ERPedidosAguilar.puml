@@ -1,0 +1,20 @@
+@startuml
+entity "Usuario" as usuario{
+    *user_id : INT <<PK>>
+    --
+    *nombre:VARCHAR(100)
+    *email:VARCHAR(100)
+    *contraseña:VARCHAR(100)
+}
+
+entity "Producto" as producto{
+    *product_id:INT <<PK>>
+    --
+    *nombre:VARCHAR(100)
+    *precio:INT <<PK>>
+}
+
+entity "Catalogo" as catalogo{
+    *product_list : LIST
+}
+@enduml

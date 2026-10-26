@@ -1,0 +1,48 @@
+@startuml
+left to right direction
+
+class Usuario{
+    - usuario::String
+    - contraseña::String
+    --
+    + ingresarUsuario()
+}
+
+class SistemaLogin{
+    + validarUsuario()}
+    + accederSistema()
+    + mostrarError()
+}
+
+class SistemaPedidos{
+    - fechaActual::LocalDate
+    --
+    + generarPedido()
+    + generarID()
+}
+
+class Producto{
+    - nombre::String
+    - precio::float
+    - stock::int
+    --
+    + estaDisponible()
+    + seleccionarCantidad()
+}
+
+class Catalogo{
+    - listaProductos::List
+    --
+    + consultarCatalogo()
+}
+
+class Historial{
+    - orders::List
+    --
+    + consultarPedidos()
+}
+Usuario --> SistemaLogin : Envía datos de usuario para iniciar sesión o registrarse
+Usuario --> Catalogo: Consulta el catálogo
+Usuario --> Historial : Al realizar la compra, puede consultar el historial de pedidos
+Catalogo --> Producto
+@enduml
